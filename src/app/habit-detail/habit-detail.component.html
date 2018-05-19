@@ -1,0 +1,40 @@
+<div class="habit-target">
+  <div class="row">
+      <div class="col-md-6">
+          <label>目标：</label>
+          <div class="target-content">
+            <p [innerHTML]="habit.description"></p>
+          </div>
+      </div>
+      <div class="col-md-6">
+        <div>
+            <textarea *ngIf="!isActivityEnd()" class="form-control" rows="3" [(ngModel)]="checkinDescription" placeholder="打卡详情"></textarea>
+        </div>
+          <button type="button" *ngIf="isActivityEnd() && habit.balance > 0" class="btn btn-primary checkin-btn float-right" (click)="withdraw()" >提现</button>
+          <button type="button" *ngIf="!isActivityEnd()" class="btn btn-primary checkin-btn float-right" (click)="checkin()" >打卡</button>
+      </div>
+  </div>
+
+</div>
+<div class="checkin-progress d-flex">
+    <ngb-progressbar type="success" class="checkin-progress-bar" height="30px" [value]="progressPercent">{{progressText}}</ngb-progressbar>
+</div>
+<div class="checkin-row d-flex">
+  <div class="datapicker">
+    <ngb-datepicker #dp [(ngModel)]="model" [dayTemplate]="customDay" [maxDate]="maxDate" [minDate]="minDate" (select)="displayCheckinDetail($event)" ></ngb-datepicker>
+    <ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected" let-disabled="disabled" let-focused="focused">
+        <span class="custom-day" [class.checkin]="isCheckedIn(date)" [class.focused]="focused"
+              [class.bg-primary]="selected" [class.hidden]="date.month !== currentMonth" [class.text-muted]="disabled">
+          {{ date.day }}
+        </span>
+    </ng-template>
+  </div>
+  <div class="checkin-detail-panel">
+    <label for="checkin-detail">打卡详情：</label>
+    <p id="checkin-detail" class="checkin-detail-content" [innerHTML]="checkinDetail"></p>
+  </div>
+</div>
+
+
+
+

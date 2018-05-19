@@ -1,0 +1,84 @@
+<div class="content">
+    <div class="page-header">
+      <div class="row">
+          <button type="button" class="btn btn-primary personalpage-btn" (click)="showNewHabit = true;">添加一个习惯</button>
+          <button type="button" class="btn btn-primary personalpage-btn" (click)="refresh()">刷新</button>
+      </div>
+      
+      <div [ngbCollapse]="!showNewHabit" class="new-habit-panel">
+          <div class="card">
+            <div class="card-body">
+                <div>
+                    <fieldset>
+                      <div class="form-group">
+                        <label for="habitTitle">习惯标题</label>
+                        <input type="text" class="form-control" id="habitTitle" [(ngModel)]="habitTitle" 
+                          placeholder="你要养成什么习惯？（比如早睡早起，每天背1000个单词...）">
+                      </div>
+                      <div class="form-group">
+                          <label for="descriptionTextarea">详细描述</label>
+                          <textarea class="form-control" id="descriptionTextarea" rows="3" [(ngModel)]="habitDescription" 
+                            placeholder="具体描述你要达成的习惯目标（比如6点起床，晚10点睡觉）"></textarea>
+                      </div>
+    
+                      <div class="form-group form-inline">
+                          <div class="form-group w-50">
+                              <label for="startDate">开始日期</label>
+                              <div class="input-group">
+                                <input class="form-control" placeholder="yyyy-mm-dd" id="startDate"
+                                        name="startDatepicker" [(ngModel)]="startDate" ngbDatepicker #dStart="ngbDatepicker">
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-secondary" (click)="dStart.toggle()" type="button">
+                                    <i class="far fa-calendar-alt" ></i>
+                                  </button>
+                                </div>
+                              </div>
+                          </div>
+                          <div class="form-group w-50">
+                              <label for="endDate">结束日期（不包括）</label>
+                              <div class="input-group">
+                                <input class="form-control" placeholder="yyyy-mm-dd" id="endDate"
+                                        name="endDatapicker" [(ngModel)]="endDate" ngbDatepicker #dEnd="ngbDatepicker">
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-secondary" (click)="dEnd.toggle()" type="button">
+                                    <i class="far fa-calendar-alt" ></i>
+                                  </button>
+                                </div>
+                              </div>
+                          </div>                      
+                      </div>
+                      <div class="form-group deposit">
+                          <label for="habitDeposit">为养成习惯存款</label>
+                          <div class="input-group">
+                              <input type="text" [(ngModel)]="depositAmount" class="form-control" id="habitDeposit" value="0.01">
+                              <div class="input-group-append">
+                                  <span class="input-group-text">NAS</span>
+                                </div>
+                          </div>
+                      </div>
+                      <div class="form-group form-inline float-right">
+                          <button type="button" class="btn btn-primary create-btn" (click)="cancel()">取消</button>
+                          <button type="button" class="btn btn-primary create-btn" (click)="create()">创建</button>
+                      </div>
+                    </fieldset>    
+                  </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <div>
+      <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0"> 
+        <div *ngFor="let activity of activities">
+            <ngb-panel>
+                <ng-template ngbPanelTitle>
+                  <span>{{activity.title}}</span>                    
+                </ng-template>      
+                <ng-template ngbPanelContent>
+                    <app-habit-detail [habit]="activity"></app-habit-detail>
+                </ng-template>
+              </ngb-panel>
+        </div>
+        </ngb-accordion>
+    </div>
+</div>

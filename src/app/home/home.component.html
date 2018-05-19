@@ -1,0 +1,55 @@
+<div class="content">
+  
+    <div *ngIf="showAlert">
+        <ngb-alert [type]="danger" (close)="closeAlert()">{{ errorMessage }}</ngb-alert>
+    </div>
+    
+    <div class="page-header">
+        <h4>看看大家都创建了哪些想要坚持习惯的活动：</h4>
+      <div *ngIf="activities.length">
+          <div *ngFor="let activity of activities; let i = index">
+              <div class="row" *ngIf="i%3 === 0" >
+                  <div class="col-md-4">
+                      <div class="card text-white  mb-3 card-height" 
+                        [ngClass]="{'bg-primary': activities[i].state === 0, 'bg-success': activities[i].state === 1, 'bg-warning': activities[i].state === 2}" >
+                          <div class="card-header">{{activities[i].title}}</div>
+                            <!-- <div class="checkin-progress d-flex">
+                                <ngb-progressbar type="success" class="checkin-progress-bar" height="30px" [value]="getProgressPercent(activities[i])">{{getProgressText(activities[i])}}</ngb-progressbar>
+                            </div> -->
+                          <div class="card-body">
+                            <!-- <div class="checkin-progress d-flex">
+                                <ngb-progressbar type="success" class="checkin-progress-bar" height="30px" [value]="getProgressPercent(activities[i])">{{getProgressText(activities[i])}}</ngb-progressbar>
+                            </div> -->
+                            <p class="card-text truncate " [innerHTML]="activities[i].description"></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div *ngIf="i+1 < activities.length" class="col-md-4">
+                      <div class="card text-white mb-3 card-height"  
+                      [ngClass]="{'bg-primary': activities[i+1].state === 0, 'bg-success': activities[i+1].state === 1, 'bg-warning': activities[i+1].state === 2}">
+                          <div class="card-header">{{activities[i+1].title}}</div>
+                            <!-- <div class="checkin-progress d-flex">
+                                <ngb-progressbar type="success" class="checkin-progress-bar" height="30px" [value]="getProgressPercent(activities[i+1])">{{getProgressText(activities[i+1])}}</ngb-progressbar>
+                            </div> -->
+                          <div class="card-body">
+                            <p class="card-text truncate" [innerHTML]="activities[i+1].description"></p>
+                        </div>
+                      </div>
+                  </div>
+                  <div *ngIf="i+2 < activities.length" class="col-md-4">
+                      <div class="card text-white mb-3 card-height"  
+                      [ngClass]="{'bg-primary': activities[i+2].state === 0, 'bg-success': activities[i+2].state === 1, 'bg-warning': activities[i+2].state === 2}" >
+                          <div class="card-header">{{activities[i+2].title}}</div>
+                          <!-- <div class="checkin-progress d-flex">
+                                <ngb-progressbar type="success" class="checkin-progress-bar" height="30px" [value]="getProgressPercent(activities[i+2])">{{getProgressText(activities[i+2])}}</ngb-progressbar>
+                          </div>  -->
+                          <div class="card-body">                             
+                            <p class="card-text truncate" [innerHTML]="activities[i+2].description"></p>
+                          </div>
+                      </div>
+                  </div>                                    
+              </div>
+          </div>
+        </div>
+    </div>
+</div>

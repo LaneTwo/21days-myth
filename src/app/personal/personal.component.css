@@ -1,0 +1,45 @@
+.content{
+    padding: 0 30px;
+}
+.page-header{
+    margin-top: 40px;
+    margin-bottom: 30px;
+
+}
+
+.new-habit-panel{
+    margin-top: 10px;
+}
+
+.create-btn{
+    margin-left: 10px;
+    width: 100px;
+}
+
+.deposit{
+    width: 150px;
+}
+
+.custom-day {
+    text-align: center;
+    padding: 0.185rem 0.25rem;
+    border-radius: 0.25rem;
+    display: inline-block;
+    width: 2rem;
+}
+.custom-day:hover, .custom-day.focused {
+    background-color: #e6e6e6;
+}
+.weekend {
+    background-color: #f0ad4e;
+    border-radius: 1rem;
+    color: white;
+}
+.hidden {
+    display: none;
+}
+.personalpage-btn{
+    width: 120px;
+    margin-right: 10px;
+}
+

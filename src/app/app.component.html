@@ -1,0 +1,43 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div  class="container">
+  <div *ngIf="isFirstLoad == 'YES'" style="text-align:center">
+    <div class="landing-page">
+        <h1>刻意练习：从新手到大师</h1>
+        <h2>21天减肥法，21天学通C++... <br>你可能看过太多的21天怎样怎样，也听说过养成（或改变）一个习惯只需要21天...<br>
+          这个DApp帮助你养成好的习惯，坚持做一件事。<br>
+          俗话说没有压力就没有动力，在这里设一个目标，存入一定的NAS作为保证金，每天坚持打卡，结束后就可以原封不动取回保证金。
+          如果没有完成打卡，则只能按比例取回相应的保证金，剩下的保证金归DApp作者所有 :)<br>
+
+          DApp开发初期，请存入小数量的NAS进行尝试
+          
+        </h2>
+        <button type="button" class="btn btn-primary landing-btn" (click)="goMainPage()">朕知道了</button>
+    </div>
+
+  </div> 
+  
+  <div *ngIf="isFirstLoad == 'NO'">
+    <div class="main-content">
+        <ngb-tabset type="pills" >
+          <ngb-tab title="主页">
+            <ng-template ngbTabContent>
+              <app-home></app-home>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab>
+            <ng-template ngbTabTitle>自己的</ng-template>
+            <ng-template ngbTabContent>
+              <app-personal></app-personal>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+    </div>
+
+    
+  </div>
+  
+</div>
+
+
+
+
