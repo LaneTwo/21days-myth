@@ -1,78 +1,31 @@
-﻿<!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <title>21 Days</title>
+  <base href="/21days-myth/">
 
-	<title>Love JJ</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<style type="text/css">
-		@font-face {
-			font-family: digit;
-			src: url("digital-7_mono.ttf"/*tpa=./digital-7_mono.ttf*/) format("truetype");
-		}
-	</style>
-	<link href="css/default.css" tppabs="./css/default.css" type="text/css" rel="stylesheet">
-	<script type="text/javascript" src="js/jquery.js" tppabs="./js/jquery.js"></script>
-	<script type="text/javascript" src="js/garden.js" tppabs="./js/garden.js"></script>
-    <script type="text/javascript" src="js/functions.js" tppabs="./js/functions.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <script>
+      var NGXSTORE_CONFIG = {
+        prefix: 'ngx_',      // default: 'ngx_'
+        clearType: 'prefix', // default: 'prefix'
+        mutateObjects: true, // default: true
+        debugMode: false,    // you can enable debug logs if you ever meet any bug to localize its source
+        cookiesScope: '',    // what you pass here will actually prepend base domain
+        cookiesCheckInterval: 0, // number in ms describing how often cookies should be checked for changes
+        previousPrefix: 'angular2ws_', // you have to set it only if you were using custom prefix in old version ('angular2ws_' is a default value)
+      };
+  </script>
+  <script src="assets/nebPay.js"></script>
+  <script src="assets/nebulas.js"></script>
+  <script>
+      var NebPay = require("nebpay");
+      var nebulas = require("nebulas");
+  </script>
+<link rel="stylesheet" href="styles.8a19c8a70702249861fd.css"></head>
 <body>
-	<div id="mainDiv">
-		<div id="content">
-			<div id="loveHeart">
-				<canvas id="garden"></canvas>
-				<div id="words">
-					<div id="messages">
-						老婆, 这是我们认识的第
-						<div id="elapseClock"></div>
-					</div>
-					<div id="loveu">
-						这辈子认定了你，爱你永不分离！<br/>
-						<div class="signature">- 爱你的老公</div>
+  <app-root></app-root>
 
-					</div>
-				</div>
-			</div>
-	<div class="bg1">	
-		<div class="main">
-			<footer style="line-height:20px">
-		</div>
-	</div>
-</div>
 
-	<script type="text/javascript">
-		var offsetX = $("#loveHeart").width() / 2;
-		var offsetY = $("#loveHeart").height() / 2 - 55;
-		var together = new Date();
-		together.setFullYear(2010, 01, 10);
-		together.setHours(19);
-		together.setMinutes(0);
-		together.setSeconds(0);
-		together.setMilliseconds(0);
-		
-		if (!document.createElement('canvas').getContext) {
-			var msg = document.createElement("div");
-			msg.id = "errorMsg";
-			msg.innerHTML = "提醒您：您的浏览器版本过旧^_^<br/>"; 
-			document.body.appendChild(msg);
-			$("#code").css("display", "none")
-			$("#copyright").css("position", "absolute");
-			$("#copyright").css("bottom", "10px");
-		    document.execCommand("stop");
-		} else {
-			setTimeout(function () {
-				adjustWordsPosition();
-				startHeartAnimation();
-			}, 5000);
-
-			timeElapse(together);
-			setInterval(function () {
-				timeElapse(together);
-			}, 500);
-
-			adjustCodePosition();
-			$("#code").typewriter();
-		}
-	</script>
-    <video id="bgmMusic" src="https://s3-ap-northeast-1.amazonaws.com/lane2-520/restlift.mp3"  autoplay="true" loop controls="controls"></video>
-
-</body>
-</html>
+<script type="text/javascript" src="runtime.6afe30102d8fe7337431.js"></script><script type="text/javascript" src="polyfills.cf535d2993b5def59ab4.js"></script><script type="text/javascript" src="scripts.806effac119676237f10.js"></script><script type="text/javascript" src="main.717189c4b5dddf91b629.js"></script></body></html>
